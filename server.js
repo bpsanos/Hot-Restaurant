@@ -17,20 +17,16 @@ app.use(express.json());
 
 
 // POSTS ================================================
-app.post("/api/tables", function(req, res) {
-    var newReservation = req.body;
+app.post("/api/tables", function (req, res) {
 
-    reservations.push(newReservation)
+    if (reservations.length < 5) {
+        reservations.push(req.body);
+        res.json(true);
+    } else {
+        waitList.push(req.body);
+        res.json(false);
+    }
 
-    res.json(newReservation);
-})
-
-app.post("/api/waitlist", function(req, res) {
-    var newReservation = req.body;
-
-    reservations.push(newReservation)
-
-    res.json(newReservation);
 })
 
 
