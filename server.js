@@ -16,6 +16,25 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 
+// POSTS ================================================
+app.post("/api/tables", function(req, res) {
+    var newReservation = req.body;
+
+    reservations.push(newReservation)
+
+    res.json(newReservation);
+})
+
+app.post("/api/waitlist", function(req, res) {
+    var newReservation = req.body;
+
+    reservations.push(newReservation)
+
+    res.json(newReservation);
+})
+
+
+
 // ROUTES ===============================================
 app.get("/api/tables", function (req, res) {
     return res.json(reservations);
