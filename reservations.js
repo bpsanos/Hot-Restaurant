@@ -5,4 +5,11 @@ var reservations = [{
     id: "8081"
 }]
 
+document.getElementById("reservationSubmit").addEventListener("click", function() {
+    var newReservation = {
+        name: document.getElementById("reservationName").value,
+        
+    }
+})
+
 module.exports = reservations;
